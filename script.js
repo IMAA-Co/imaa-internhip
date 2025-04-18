@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const continueToWhatsAppBtn = document.getElementById('continueToWhatsApp');
     let whatsappUrl = '';
 
-    // Remove file input handling since we're changing to text input
-    
     // Form validation
     function validateField(field) {
         const errorElement = document.getElementById(`${field.id}-error`);
@@ -53,6 +51,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 return true;
             }
         } 
+        else if (field.type === 'select-one') {
+            if (!field.value) {
+                field.classList.add('input-error');
+                errorElement.style.display = 'block';
+                return false;
+            } else {
+                field.classList.remove('input-error');
+                errorElement.style.display = 'none';
+                return true;
+            }
+        }
         else {
             if (!field.value.trim()) {
                 field.classList.add('input-error');
@@ -80,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const fullNameValid = validateField(document.getElementById('fullName'));
         const emailValid = validateField(document.getElementById('email'));
         const universityValid = validateField(document.getElementById('university'));
-        const majorValid = validateField(document.getElementById('major'));  // Add major validation
+        const majorValid = validateField(document.getElementById('major'));
         const genderRadios = document.querySelector('input[name="gender"]');
         const genderValid = validateField(genderRadios);
         const graduationStatusValid = validateField(document.getElementById('graduationStatus'));
@@ -97,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const fullName = formData.get('fullName');
         const email = formData.get('email');
         const university = formData.get('university');
-        const major = formData.get('major');  // Add major
+        const major = formData.get('major');
         const gender = formData.get('gender');
         const graduationStatus = formData.get('graduationStatus');
         
