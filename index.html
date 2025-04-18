@@ -13,7 +13,9 @@
     <div class="container">
         <header>
             <div class="logo-container">
-                <div class="logo">IMAA</div>
+                <div class="logo">
+                    <img src="images/imaa-logo.png" alt="IMAA Logo">
+                </div>
             </div>
             <h1>IMAA Company</h1>
             <p>Apply for our exclusive internship program today</p>
@@ -64,13 +66,19 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="cv">Upload CV (PDF/DOC)</label>
-                    <div class="file-upload">
-                        <label for="cv" class="file-upload-btn">Choose File</label>
-                        <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
-                        <div class="file-name" id="file-name">No file chosen</div>
-                    </div>
-                    <div class="error-message" id="cv-error">Please upload your CV (PDF or DOC format)</div>
+                    <label for="major">Major</label>
+                    <select id="major" name="major" required>
+                        <option value="">Select your major</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Computer Engineering">Computer Engineering</option>
+                        <option value="Software Engineering">Software Engineering</option>
+                        <option value="Information Technology">Information Technology</option>
+                        <option value="Business Information Technology">Business Information Technology</option>
+                        <option value="Electrical Engineering">Electrical Engineering</option>
+                        <option value="Electronics Engineering">Electronics Engineering</option>
+                        <option value="Telecommunications Engineering">Telecommunications Engineering</option>
+                    </select>
+                    <div class="error-message" id="major-error">Please select your major</div>
                 </div>
 
                 <button type="submit" class="submit-btn" id="submitBtn">Submit Application</button>
